@@ -1,0 +1,137 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutEdumin.cshtml";
+	ViewData["Title"] = "<<Put your different title string value here for each page>>";
+}
+<div class="content-body">
+	<!-- row -->
+	<div class="container-fluid">
+
+		<div class="row page-titles mx-0">
+			<div class="col-sm-6 p-md-0">
+				<div class="welcome-text">
+					<h4>Edit Course</h4>
+				</div>
+			</div>
+			<div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+				<ol class="breadcrumb">
+
+					<li class="breadcrumb-item"><a href="javascript:void(0);">Courses</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0);">Edit Course</a></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">Courses Details</h4>
+					</div>
+					<div class="card-body">
+						<form action="#" method="post">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Course_Name">Course Name</label>
+										<input id="Course_Name" type="text" class="form-control" value="Programming" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Course_Code">Course Code</label>
+										<input id="Course_Code" type="text" class="form-control" value="Pro#005" required>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<div class="form-group">
+										<label class="form-label" for="Course_Details">Course Details</label>
+										<textarea id="Course_Details" class="form-control" rows="5" required>Why is Early Education Essential</textarea>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="datepicker">Start Form</label>
+										<div class="input-hasicon mb-xl-0 mb-3">
+											<input name="datepicker" class="datepicker-default form-control" id="datepicker" value="7 August, 2021" required>
+											<div class="icon"><i class="far fa-calendar"></i></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Course_Duration">Course Duration</label>
+										<input id="Course_Duration" type="text" class="form-control" value="3 Year" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Course_Price">Course Price</label>
+										<input id="Course_Price" type="text" class="form-control" value="$1500" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Professor_Name">Professor Name</label>
+										<input id="Professor_Name" type="text" class="form-control" value="Jimmy Morris" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Maximum_Students">Maximum Students</label>
+										<input id="Maximum_Students" type="text" class="form-control" value="200" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="form-label" for="Contact_Number">Contact Number</label>
+										<input id="Contact_Number" type="text" class="form-control" value="+01 123 456 7890" required>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="form-group fallback w-100">
+										<label class="form-label d-block" for="Course_Photo">Course Photo</label>
+										<input id="Course_Photo" type="file" class="form-control" data-default-file="" required>
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-danger light">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+@section Edumin_style
+{
+	<link rel="stylesheet" href="~/edumin/vendor/pickadate/themes/default.css">
+	<link rel="stylesheet" href="~/edumin/vendor/pickadate/themes/default.date.css">
+}
+
+@section Edumin_script
+{
+	<script src="~/edumin/vendor/global/global.min.js"></script>
+	<script src="~/edumin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+	<!-- Svganimation scripts -->
+	<script src="~/edumin/vendor/svganimation/vivus.min.js"></script>
+	<script src="~/edumin/vendor/svganimation/svg.animation.js"></script>
+
+	<!-- pickdate -->
+	<script src="~/edumin/vendor/pickadate/picker.js"></script>
+	<script src="~/edumin/vendor/pickadate/picker.time.js"></script>
+	<script src="~/edumin/vendor/pickadate/picker.date.js"></script>
+
+	<!-- Pickdate -->
+	<script src="~/edumin/js/plugins-init/pickadate-init.js"></script>
+
+	<script src="~/edumin/js/custom.min.js"></script>
+	<script src="~/edumin/js/dlabnav-init.js"></script>
+	
+	
+}

@@ -1,0 +1,17 @@
+{
+  "name": "scholltracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts":
+  {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --watch wwwroot/edumin/scss/main.scss wwwroot/edumin/css/style.css"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

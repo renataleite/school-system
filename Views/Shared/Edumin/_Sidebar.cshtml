@@ -1,0 +1,289 @@
+﻿<!--**********************************
+			Sidebar start
+		***********************************-->
+<div class="dlabnav">
+	<div class="dlabnav-scroll">
+		<ul class="metismenu" id="menu">
+			<li class="nav-label first">Main Menu</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-home"></i>
+					<span class="nav-text">Dashboard</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("Index","Edumin")">Dashboard 1</a></li>
+					<li><a href="@Url.Action("Index2","Edumin")">Dashboard 2</a></li>
+					<li><a href="@Url.Action("Index3","Edumin")">Dashboard 3</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="ai-icon" href="@Url.Action("EventManagement","Edumin")" aria-expanded="false">
+					<i class="la la-calendar"></i>
+					<span class="nav-text">Event Management</span>
+				</a>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-user"></i>
+					<span class="nav-text">Professors</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllProfessors","Edumin")">All Professor</a></li>
+					<li><a href="@Url.Action("AddProfessor","Edumin")">Add Professor</a></li>
+					<li><a href="@Url.Action("EditProfessor","Edumin")">Edit Professor</a></li>
+					<li><a href="@Url.Action("ProfessorProfile","Edumin")">Professor Profile</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-users"></i>
+					<span class="nav-text">Students</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllStudents","Edumin")">All Students</a></li>
+					<li><a href="@Url.Action("AddStudent","Edumin")">Add Students</a></li>
+					<li><a href="@Url.Action("EditStudent","Edumin")">Edit Students</a></li>
+					<li><a href="@Url.Action("AboutStudent","Edumin")">About Students</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-graduation-cap"></i>
+					<span class="nav-text">Courses</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllCourses","Edumin")">All Courses</a></li>
+					<li><a href="@Url.Action("AddCourses","Edumin")">Add Courses</a></li>
+					<li><a href="@Url.Action("EditCourses","Edumin")">Edit Courses</a></li>
+					<li><a href="@Url.Action("AboutCourses","Edumin")">About Courses</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-book"></i>
+					<span class="nav-text">Library</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllLibrary","Edumin")">All Library</a></li>
+					<li><a href="@Url.Action("AddLibrary","Edumin")">Add Library</a></li>
+					<li><a href="@Url.Action("EditLibrary","Edumin")">Edit Library</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-building"></i>
+					<span class="nav-text">Departments</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllDepartments","Edumin")">All Departments</a></li>
+					<li><a href="@Url.Action("AddDepartments","Edumin")">Add Departments</a></li>
+					<li><a href="@Url.Action("EditDepartments","Edumin")">Edit Departments</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-users"></i>
+					<span class="nav-text">Staff</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllStaff","Edumin")">All Staff</a></li>
+					<li><a href="@Url.Action("AddStaff","Edumin")">Add Staff</a></li>
+					<li><a href="@Url.Action("EditStaff","Edumin")">Edit Staff</a></li>
+					<li><a href="@Url.Action("StaffProfile","Edumin")">Staff Profile</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-gift"></i>
+					<span class="nav-text">Holiday</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AllHoliday","Edumin")">All Holiday</a></li>
+					<li><a href="@Url.Action("AddHoliday","Edumin")">Add Holiday</a></li>
+					<li><a href="@Url.Action("EditHoliday","Edumin")">Edit Holiday</a></li>
+					<li><a href="@Url.Action("HolidayCalendar","Edumin")">Holiday Calendar</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-dollar"></i>
+					<span class="nav-text">Fees</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("FeesCollection","Edumin")">Fees Collection</a></li>
+					<li><a href="@Url.Action("AddFees","Edumin")">Add Fees</a></li>
+					<li><a href="@Url.Action("FeesReceipt","Edumin")">Fees Receipt</a></li>
+				</ul>
+			</li>
+			<li class="nav-label">Apps</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-users"></i>
+					<span class="nav-text">Apps</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("AppProfile","Edumin")">Profile</a></li>
+					<li><a href="@Url.Action("PostDetails","Edumin")">Post Details<span class="badge badge-danger badge-xs ms-2">NEW</span></a></li>
+					<li><a href="@Url.Action("EditProfile","Edumin")">Edit Profile<span class="badge badge-danger badge-xs ms-2">NEW</span></a></li>
+					<li>
+						<a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+						<ul aria-expanded="false">
+							<li><a href="@Url.Action("EmailCompose","Edumin")">Compose</a></li>
+							<li><a href="@Url.Action("EmailInbox","Edumin")">Inbox</a></li>
+							<li><a href="@Url.Action("EmailRead","Edumin")">Read</a></li>
+						</ul>
+					</li>
+					<li><a href="@Url.Action("AppCalender","Edumin")">Calendar</a></li>
+					<li>
+						<a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
+						<ul aria-expanded="false">
+							<li><a href="@Url.Action("EcomProductGrid","Edumin")">Product Grid</a></li>
+							<li><a href="@Url.Action("EcomProductList","Edumin")">Product List</a></li>
+							<li><a href="@Url.Action("EcomProductDetail","Edumin")">Product Details</a></li>
+							<li><a href="@Url.Action("EcomProductOrder","Edumin")">Order</a></li>
+							<li><a href="@Url.Action("EcomCheckout","Edumin")">Checkout</a></li>
+							<li><a href="@Url.Action("EcomInvoice","Edumin")">Invoice</a></li>
+							<li><a href="@Url.Action("EcomCustomers","Edumin")">Customers</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow ai-icon" href="javascript:void(0)" aria-expanded="false">
+					<i class="flaticon-381-database-1"></i>
+					<span class="nav-text">CMS</span>
+					<span class="badge badge-danger badge-xs ms-2">NEW</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("Content","Edumin")">Content</a></li>
+					<li><a href="@Url.Action("Menu","Edumin")">Menus</a></li>
+					<li>
+						<a href="@Url.Action("EmailTemplate","Edumin")">Email Template</a>
+					</li>
+					<li><a href="@Url.Action("Blog","Edumin")">Blog</a></li>
+					<li><a href="@Url.Action("ContentAdd","Edumin")"> Add Content</a></li>
+					<li><a href="@Url.Action("AddEmail","Edumin")">Add Email</a></li>
+					<li><a href="@Url.Action("AddBlog","Edumin")">Add Blog</a></li>
+					<li><a href="@Url.Action("BlogCategory","Edumin")">Blog Category</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+					<i class="la la-signal"></i>
+					<span class="nav-text">Charts</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("ChartFlot","Edumin")">Flot</a></li>
+					<li><a href="@Url.Action("ChartMorris","Edumin")">Morris</a></li>
+					<li><a href="@Url.Action("ChartChartjs","Edumin")">Chartjs</a></li>
+					<li><a href="@Url.Action("ChartChartist","Edumin")">Chartist</a></li>
+					<li><a href="@Url.Action("ChartSparkline","Edumin")">Sparkline</a></li>
+					<li><a href="@Url.Action("ChartPeity","Edumin")">Peity</a></li>
+				</ul>
+			</li>
+			<li class="nav-label">Components</li>
+			<li class="ui-menu">
+				<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+					<i class="la la-globe"></i>
+					<span class="nav-text">Bootstrap</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("UiAccordion","Edumin")">Accordion</a></li>
+					<li><a href="@Url.Action("UiAlert","Edumin")">Alert</a></li>
+					<li><a href="@Url.Action("UiBadge","Edumin")">Badge</a></li>
+					<li><a href="@Url.Action("UiButton","Edumin")">Button</a></li>
+					<li><a href="@Url.Action("UiModal","Edumin")">Modal</a></li>
+					<li><a href="@Url.Action("UiButtonGroup","Edumin")">Button Group</a></li>
+					<li><a href="@Url.Action("UiListGroup","Edumin")">List Group</a></li>
+					<li><a href="@Url.Action("UiMediaObject","Edumin")">Media Object</a></li>
+					<li><a href="@Url.Action("UiCard","Edumin")">Cards</a></li>
+					<li><a href="@Url.Action("UiCarousel","Edumin")">Carousel</a></li>
+					<li><a href="@Url.Action("UiDropdown","Edumin")">Dropdown</a></li>
+					<li><a href="@Url.Action("UiPopover","Edumin")">Popover</a></li>
+					<li><a href="@Url.Action("UiProgressbar","Edumin")">Progressbar</a></li>
+					<li><a href="@Url.Action("UiTab","Edumin")">Tab</a></li>
+					<li><a href="@Url.Action("UiTypography","Edumin")">Typography</a></li>
+					<li><a href="@Url.Action("UiPagination","Edumin")">Pagination</a></li>
+					<li><a href="@Url.Action("UiGrid","Edumin")">Grid</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-plus-square-o"></i>
+					<span class="nav-text">Plugins</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("UcSelect2","Edumin")">Select 2</a></li>
+					<li><a href="@Url.Action("UcNestable","Edumin")">Nestedable</a></li>
+					<li><a href="@Url.Action("UcNouiSlider","Edumin")">Noui Slider</a></li>
+					<li><a href="@Url.Action("UcSweetalert","Edumin")">Sweet Alert</a></li>
+					<li><a href="@Url.Action("UcToastr","Edumin")">Toastr</a></li>
+					<li><a href="@Url.Action("MapJqvmap","Edumin")">Jqv Map</a></li>
+					<li><a href="@Url.Action("UcLightgallery","Edumin")">Light Gallery<span class="badge badge-danger badge-xs ms-2">NEW</span></a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="@Url.Action("WidgetBasic","Edumin")" aria-expanded="false">
+					<i class="la la-desktop"></i>
+					<span class="nav-text">Widget</span>
+				</a>
+			</li>
+			<li class="nav-label">Forms</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-file-text"></i>
+					<span class="nav-text">Forms</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("FormElement","Edumin")">Form Elements</a></li>
+					<li><a href="@Url.Action("FormWizard","Edumin")">Wizard</a></li>
+					<li><a href="@Url.Action("FormCkeditor","Edumin")">CkEditor</a></li>
+					<li><a href="@Url.Action("FormPickers","Edumin")">Pickers</a></li>
+					<li><a href="@Url.Action("FormValidation","Edumin")">Form Validate</a></li>
+				</ul>
+			</li>
+			<li class="nav-label">Table</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-table"></i>
+					<span class="nav-text">Table</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("TableBootstrapBasic","Edumin")">Bootstrap</a></li>
+					<li><a href="@Url.Action("TableDatatableBasic","Edumin")">Datatable</a></li>
+				</ul>
+			</li>
+			<li class="nav-label">Extra</li>
+			<li>
+				<a class="has-arrow" href="javascript:void()" aria-expanded="false">
+					<i class="la la-th-list"></i>
+					<span class="nav-text">Pages</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="@Url.Action("PageRegister","Edumin")">Register</a></li>
+					<li><a href="@Url.Action("PageLogin","Edumin")">Login</a></li>
+					<li>
+						<a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+						<ul aria-expanded="false">
+							<li><a href="@Url.Action("PageError400","Edumin")">Error 400</a></li>
+							<li><a href="@Url.Action("PageError403","Edumin")">Error 403</a></li>
+							<li><a href="@Url.Action("PageError404","Edumin")">Error 404</a></li>
+							<li><a href="@Url.Action("PageError500","Edumin")">Error 500</a></li>
+							<li><a href="@Url.Action("PageError503","Edumin")">Error 503</a></li>
+						</ul>
+					</li>
+					<li><a href="@Url.Action("PageLockScreen","Edumin")">Lock Screen</a></li>
+				</ul>
+			</li>
+		</ul>
+
+
+		<div class="copyright">
+			<p>Edumin Saas Admin © 2024 All Rights Reserved</p>
+			<p class="fs-12">Made with <span class="heart"></span> by DexignLab</p>
+		</div>
+	</div>
+</div>
+<!--**********************************
+	Sidebar end
+***********************************-->
