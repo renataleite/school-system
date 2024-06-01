@@ -28,27 +28,22 @@
                             </a>
                         </div>
                         <h4 class="text-center mb-4">Sign up your account</h4>
-                        <form action="@Url.Action("Index","Edumin")">
+                        <form asp-controller="Account" asp-action="Register" method="post">
                             <div class="form-group">
                                 <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" placeholder="username" id="username">
+                                <input type="text" class="form-control" name="Username" placeholder="username" id="username">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
-                                <input type="email" class="form-control" placeholder="hello@example.com" id="email">
+                                <input type="email" class="form-control" name="Email" placeholder="hello@example.com" id="email">
                             </div>
-                            <div class="mb-4 position-relative">
-                                <label class="form-label" for="dlabPassword">Password</label>
-                                <input type="password" id="dlabPassword" class="form-control" value="123456">
-                                <span class="show-pass eye">
-                                    <i class="fa fa-eye-slash"></i>
-                                    <i class="fa fa-eye"></i>
-                                </span>
+                            <div class="form-group">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" class="form-control" name="Password" id="password">
                             </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
                         </form>
+
                         <div class="new-account mt-3">
                             <p>Already have an account? <a class="text-primary" href="@Url.Action("PageLogin","Edumin")">Sign in</a></p>
                         </div>

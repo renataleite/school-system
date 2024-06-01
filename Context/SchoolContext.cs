@@ -10,6 +10,7 @@ namespace Edumin.Context
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<User> Users { get; set; }
         // Adicione outras propriedades DbSet aqui
     }
 }
