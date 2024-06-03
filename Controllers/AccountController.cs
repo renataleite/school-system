@@ -47,57 +47,61 @@ namespace Edumin.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(User user)
-        {
-            if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
-            {
-                ModelState.AddModelError("", "Username or password is empty");
-                return View();
-            }
+		[HttpPost]
+		public async Task<IActionResult> Login(User user)
+		{
+			if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+			{
+				ModelState.AddModelError("", "Username or password is empty");
+				return View();
+			}
 
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
-            if (existingUser == null)
-            {
-                ModelState.AddModelError("", "Invalid login attempt.");
-                return View();
-            }
+			var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+			if (existingUser == null)
+			{
+				TempData["Error"] = "Usuário ou senha inválido.";
+				return RedirectToAction("PageLogin", "Edumin");
+			}
 
-            var passwordHasher = new PasswordHasher<User>(); // Certifique-se de que esta inicialização está correta
-            var verificationResult = passwordHasher.VerifyHashedPassword(existingUser, existingUser.Password, user.Password);
-            if (verificationResult == PasswordVerificationResult.Failed)
-            {
-                ModelState.AddModelError("", "Invalid login attempt.");
-                return View();
-            }
 
-            // Suponha que "Your_Very_Secure_Secret_Key_Here" seja uma chave segura de 32 bytes
-            var key = Encoding.ASCII.GetBytes("3m4qWrmPhdVQ/hXA78j+8bBTIZr0ceGO02fOiT/z/As=\r\n");
-            var securityKey = new SymmetricSecurityKey(key);
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+			var verificationResult = passwordHasher.VerifyHashedPassword(existingUser, existingUser.Password, user.Password);
+			if (verificationResult == PasswordVerificationResult.Failed)
+			{
+				ModelState.AddModelError("", "Invalid login attempt.");
+				return View();
+			}
 
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-        new Claim("userId", existingUser.UserId.ToString()),
-        new Claim(ClaimTypes.Name, existingUser.Username),
-        new Claim(ClaimTypes.Email, existingUser.Email),
-    }),
-                Expires = DateTime.UtcNow.AddHours(2),
-                SigningCredentials = credentials
-            };
+			var tokenString = GenerateJwtToken(existingUser); // Assume GenerateJwtToken faz todo o processo de criar o token.
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+			HttpContext.Response.Cookies.Append("AuthToken", tokenString, new CookieOptions { HttpOnly = true, Secure = true });
+			HttpContext.Response.Cookies.Append("UserName", existingUser.Username, new CookieOptions { HttpOnly = true, Secure = true });
+			HttpContext.Response.Cookies.Append("Email", existingUser.Email, new CookieOptions { HttpOnly = true, Secure = true });
 
-            // Armazenar o token no local apropriado, por exemplo, em um cookie ou cabeçalho de resposta para web apps
-            HttpContext.Response.Cookies.Append("AuthToken", tokenString, new CookieOptions { HttpOnly = true, Secure = true });
+			return RedirectToAction("Index", "Edumin");
+		}
 
-            // Redirecionar para a página principal
-            return RedirectToAction("Index", "Edumin");
-        }
+		private string GenerateJwtToken(User user)
+		{
+			var key = Encoding.ASCII.GetBytes("3m4qWrmPhdVQ/hXA78j+8bBTIZr0ceGO02fOiT/z/As=\r\n");
+			var securityKey = new SymmetricSecurityKey(key);
+			var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-    }
+			var tokenDescriptor = new SecurityTokenDescriptor
+			{
+				Subject = new ClaimsIdentity(new[]
+				{
+			new Claim("userId", user.UserId.ToString()),
+			new Claim(ClaimTypes.Name, user.Username),
+			new Claim(ClaimTypes.Email, user.Email),
+		}),
+				Expires = DateTime.UtcNow.AddHours(2),
+				SigningCredentials = credentials
+			};
+
+			var tokenHandler = new JwtSecurityTokenHandler();
+			var token = tokenHandler.CreateToken(tokenDescriptor);
+			return tokenHandler.WriteToken(token);
+		}
+
+	}
 }

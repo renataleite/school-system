@@ -1,7 +1,16 @@
 ﻿@{
 	Layout = "~/Views/Shared/_LayoutEdumin.cshtml";
 	ViewData["Title"] = "<<Put your different title string value here for each page>>";
+	var userName = Context.Request.Cookies["UserName"];
+	if (string.IsNullOrEmpty(userName))
+	{
+		userName = "Default User"; // Ou qualquer outra lógica de fallback que você prefira
+	}
+
+	var email = Context.Request.Cookies["Email"];
+
 }
+
 <div class="content-body">
 	<div class="container-fluid">
 		<div class="row page-titles mx-0">
@@ -32,11 +41,11 @@
 							</div>
 							<div class="profile-details">
 								<div class="profile-name px-3 pt-2">
-									<h4 class="text-primary mb-0">Mitchell C. Shay</h4>
+									<h4 class="text-primary mb-0">@userName</h4>
 									<p>UX / UI Designer</p>
 								</div>
 								<div class="profile-email px-2 pt-2">
-									<h4 class="text-muted mb-0">info@example.com</h4>
+									<h4 class="text-muted mb-0">@email</h4>
 									<p>Email</p>
 								</div>
 								<div class="dropdown ms-auto">
@@ -687,5 +696,7 @@
 				closeOnConfirm: !1
 			})
 		}
+
 	</script>
+
 }
