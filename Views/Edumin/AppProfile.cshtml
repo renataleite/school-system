@@ -8,6 +8,7 @@
 	}
 
 	var email = Context.Request.Cookies["Email"];
+	var role = Context.Request.Cookies["Role"];
 
 }
 
@@ -42,7 +43,7 @@
 							<div class="profile-details">
 								<div class="profile-name px-3 pt-2">
 									<h4 class="text-primary mb-0">@userName</h4>
-									<p>UX / UI Designer</p>
+									<p>@role</p>
 								</div>
 								<div class="profile-email px-2 pt-2">
 									<h4 class="text-muted mb-0">@email</h4>

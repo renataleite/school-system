@@ -31,18 +31,27 @@
                         <form asp-controller="Account" asp-action="Register" method="post">
                             <div class="form-group">
                                 <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" name="Username" placeholder="username" id="username">
+                                <input type="text" class="form-control" name="Username" placeholder="username" id="username" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
-                                <input type="email" class="form-control" name="Email" placeholder="hello@example.com" id="email">
+                                <input type="email" class="form-control" name="Email" placeholder="hello@example.com" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <select class="form-control" id="role" name="Role">
+                                    <option value="Director">Diretor</option>
+                                    <option value="Teacher">Professor</option>
+                                    <option value="Student">Aluno</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="password">Password</label>
-                                <input type="password" class="form-control" name="Password" id="password">
+                                <input type="password" class="form-control" name="Password" id="password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Sign me up</button>
                         </form>
+
 
                         <div class="new-account mt-3">
                             <p>Already have an account? <a class="text-primary" href="@Url.Action("PageLogin","Edumin")">Sign in</a></p>
