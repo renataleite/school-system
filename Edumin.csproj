@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\edumin\uploads\" />
     <Folder Include="wwwroot\edumin\vendor\lightgallery\src\images\" />
+    <Folder Include="wwwroot\Uploads\Logos\" />
   </ItemGroup>
 
   <ItemGroup>

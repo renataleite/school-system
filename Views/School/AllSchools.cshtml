@@ -1,0 +1,163 @@
+﻿@model IEnumerable<Edumin.Models.School>
+
+@{
+    Layout = "~/Views/Shared/_LayoutEdumin.cshtml";
+    ViewData["Title"] = "Lista de Escolas";
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Escolas</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index", "School")">Escolas</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0);">Lista de Escolas</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Lista de Escolas</h4>
+                        <a href="@Url.Action("AddSchools", "School")" class="btn btn-primary">+ Adicionar Escola</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Logo</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var school in Model)
+                                    {
+                                        <tr id="row-@school.SchoolId">
+                                            <td>@school.SchoolId</td>
+                                            <td>@school.Name</td>
+                                            <td>
+                                                <img src="@Url.Content(school.LogoPath)" alt="Logo" style="width:50px; height:auto;">
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("EditSchools", "School", new { id = school.SchoolId })" class="btn btn-primary">Editar</a>
+                                                <a href="javascript:void(0);" class="btn btn-danger" onclick="showDeleteModal('@school.SchoolId', '@school.Name', '@Url.Content(school.LogoPath)', '@Url.Action("DeleteConfirmed", "School", new { id = school.SchoolId })')">Excluir</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete Confirmation -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Tem certeza de que deseja excluir a escola: <strong id="schoolNameToDelete"></strong>?
+                <div><img id="schoolLogoToDelete" src="" alt="Logo" style="max-width: 100px; max-height: 100px;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Edumin_style
+{
+	<link href="~/edumin/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/edumin/vendor/toastr/css/toastr.min.css">
+}
+
+@section Edumin_script
+{
+    <script src="~/edumin/vendor/global/global.min.js"></script>
+    <script src="~/edumin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/edumin/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/edumin/js/plugins-init/datatables.init.js"></script>
+
+    <!-- Toastr for notifications -->
+    <script src="~/edumin/vendor/toastr/js/toastr.min.js"></script>
+    <script src="~/edumin/js/plugins-init/toastr-init.js"></script>
+
+    <!-- Svganimation scripts -->
+    <script src="~/edumin/vendor/svganimation/vivus.min.js"></script>
+    <script src="~/edumin/vendor/svganimation/svg.animation.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="~/edumin/js/custom.min.js"></script>
+    <script src="~/edumin/js/dlabnav-init.js"></script>
+
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="__RequestVerificationToken"]').val()
+            }
+        });
+
+        function showDeleteModal(schoolId, schoolName, schoolLogo, deleteUrl) {
+            $('#schoolNameToDelete').text(schoolName);
+            $('#schoolLogoToDelete').attr('src', schoolLogo);
+            $('#deleteModal').modal('show');
+
+            $('#confirmDelete').off('click').on('click', function () {
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            $('#deleteModal').modal('hide');
+                            showToast(response.message, true);
+                            $('#row-' + schoolId).remove(); // Remove a linha da tabela
+                        } else {
+                            showToast(response.message, false);
+                        }
+                    }
+                });
+            });
+        }
+
+        function showToast(message, success) {
+            var toastType = success ? 'success' : 'error';
+            toastr[toastType](message, {
+                closeButton: true,
+                progressBar: true,
+                positionClass: "toast-top-right",
+                preventDuplicates: true,
+                timeOut: 5000,
+            });
+        }
+    </script>
+
+
+
+    
+    
+}

@@ -9,14 +9,14 @@
 		<div class="row page-titles mx-0">
 			<div class="col-sm-6 p-md-0">
 				<div class="welcome-text">
-					<h4>Add Departments</h4>
+					<h4>Adicionar Escola</h4>
 				</div>
 			</div>
 			<div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
 				<ol class="breadcrumb">
 
-					<li class="breadcrumb-item"><a href="javascript:void(0);">Departments</a></li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0);">Add Departments</a></li>
+					<li class="breadcrumb-item"><a href="javascript:void(0);">Escolas</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0);">Adicionar Escola</a></li>
 				</ol>
 			</div>
 		</div>
@@ -25,51 +25,32 @@
 			<div class="col-xl-12 col-xxl-12 col-sm-12">
 				<div class="card">
 					<div class="card-header">
-						<h5 class="card-title">Add Department</h5>
+						<h5 class="card-title">Adicionar Escola</h5>
 					</div>
 					<div class="card-body">
-						<form action="#" method="post">
+						<form action="@Url.Action("Add", "School")" method="post" enctype="multipart/form-data">
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="Department_Name" class="form-label">Department Name</label>
-										<input id="Department_Name" placeholder="Department Name" type="text" class="form-control" required>
+										<label for="Department_Name" class="form-label">Nome da Escola</label>
+										<input id="Department_Name" name="Name" placeholder="Nome da Escola" type="text" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="Head_Of_Department" class="form-label">Head Of Department</label>
-										<input id="Head_Of_Department" placeholder="Head Of Department" type="text" class="form-control" required>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="datepicker" class="form-label">Department Start Date</label>
-										<div class="input-hasicon mb-xl-0 mb-3">
-											<input placeholder="Department Start Date" name="datepicker" class="datepicker-default form-control" id="datepicker" required>
-											<div class="icon"><i class="far fa-calendar"></i></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div class="form-group">
-										<label for="Student_Capacity" class="form-label">Student Capacity</label>
-										<input id="Student_Capacity" placeholder="Student Capacity" type="text" class="form-control" required>
+										<label for="School_Logo" class="form-label">Logo da Escola</label>
+										<input id="School_Logo" name="LogoFile" type="file" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<div class="form-group">
-										<label for="Department_Details" class="form-label">Department Details</label>
-										<textarea id="Department_Details" placeholder="Department Details" class="form-control" rows="5" required></textarea>
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-sm-12">
-									<button type="submit" class="btn btn-primary">Submit</button>
-									<button type="submit" class="btn btn-danger light">Cancel</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="button" class="btn btn-danger light" onclick="window.history.back();">Cancelar</button>
 								</div>
 							</div>
 						</form>
+
 					</div>
+
 				</div>
 			</div>
 		</div>
