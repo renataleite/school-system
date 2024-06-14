@@ -1,6 +1,6 @@
-# SchoolTracker
+# school-system
 
-SchoolTracker é uma aplicação web ASP.NET Core MVC projetada para gerenciar informações de escolas, incluindo a adição, edição e exclusão de escolas. O sistema também permite o upload de logotipos das escolas e a visualização de todas as escolas cadastradas.
+school-system é uma aplicação web ASP.NET Core MVC projetada para gerenciar informações de escolas, incluindo a adição, edição e exclusão de escolas. O sistema também permite o upload de logotipos das escolas e a visualização de todas as escolas cadastradas.
 
 ## Tecnologias Utilizadas
 
@@ -61,8 +61,8 @@ SchoolTracker é uma aplicação web ASP.NET Core MVC projetada para gerenciar i
 
 1. Clone o repositório.
    ```bash
-   git clone https://github.com/seu-usuario/schooltracker.git
-   cd schooltracker
+   git clone https://github.com/seu-usuario/school-system.git
+   cd school-system
    ```
 
 2. Restaure as dependências.
@@ -74,7 +74,7 @@ SchoolTracker é uma aplicação web ASP.NET Core MVC projetada para gerenciar i
    ```json
    {
      "ConnectionStrings": {
-       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SchoolTracker;Trusted_Connection=True;MultipleActiveResultSets=true"
+       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=school-system;Trusted_Connection=True;MultipleActiveResultSets=true"
      }
    }
    ```
