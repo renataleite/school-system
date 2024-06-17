@@ -1,6 +1,6 @@
-# school-system
+# School System
 
-school-system é uma aplicação web ASP.NET Core MVC projetada para gerenciar informações de escolas, incluindo a adição, edição e exclusão de escolas. O sistema também permite o upload de logotipos das escolas e a visualização de todas as escolas cadastradas.
+School System é uma aplicação web ASP.NET Core MVC projetada para gerenciar informações de escolas, incluindo a adição, edição e exclusão de escolas. O sistema também permite o upload de logotipos das escolas e a visualização de todas as escolas cadastradas.
 
 ## Tecnologias Utilizadas
 
